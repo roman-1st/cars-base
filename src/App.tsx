@@ -6,7 +6,7 @@ import MapContainer from './components/MapContainer/MapContainer';
 function App() {
   return (
     <div className="App">
-      <p> Hello !</p>
+      <h3 style={{textAlign: 'center'}}> Карточки автомобилей </h3>
       <CardList />
       <MapContainer />
     </div>

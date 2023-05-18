@@ -14,11 +14,7 @@ const CardList = () => {
         getCarsBase()
     }, [])
 
-    if (isLoading) return (
-        <>
-            <p> Is loading... </p>
-        </>
-    )
+    if (isLoading) return <p> Is loading... </p>
 
     return (
         <S.CardList>

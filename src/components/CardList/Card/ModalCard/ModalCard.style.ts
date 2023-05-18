@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const CardModalWindow = styled.div`
     position: fixed;
-    // display: none;
     top: 0;
     left: 0;
     z-index: 2;

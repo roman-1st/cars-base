@@ -1,5 +1,3 @@
-// [{"id":1,"name":"Toyota","model":"Camry","year":2021,"color":"red","price":21000,"latitude":55.753332,"longitude":37.621676},
-
 export interface CarsState {
     base: CarsBase[];
     isLoading: boolean;

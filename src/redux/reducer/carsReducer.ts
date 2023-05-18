@@ -34,10 +34,10 @@ export const carsBaseReducer = (state = initialState, action: CarsActions): Cars
             if (action.payload.model !== '') {
                 currentCard[0].model = action.payload.model
             }
-            if (action.payload.price !== null) {
+            if (String(action.payload.price) !== '') {
                 currentCard[0].price = action.payload.price
             }
-            
+
             currentBase.push(...currentCard)
             currentBase.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id);
 

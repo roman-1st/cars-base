@@ -5,51 +5,45 @@ import * as S from "./ModalCard.style";
 interface ModalCardProps {
   modal: boolean;
   id: number;
-//   newPrice: string;
-//   newTitle: string ;
-//   newModel: string;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
-//   setNewTitle: React.Dispatch<React.SetStateAction<string>>;
-//   setNewPrice: React.Dispatch<React.SetStateAction<string>>;
-//   setNewModel: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ModalCard = ({
-  modal,
-  setModal,
-  id,
-//   newTitle,
-//   setNewTitle,
-//   newModel,
-//   setNewModel,
-//   newPrice,
-//   setNewPrice,
-}: ModalCardProps) => {
-
+const ModalCard = ({modal,setModal,id,}: ModalCardProps) => {
     const {changeCardAction} = useActions()
-    const [name, setNewName] = useState('')
-    const [price, setNewPrice] = useState('')
+    const [name, setNewName] = useState<string>('')
+    const [price, setNewPrice] = useState<number | ''>('')
     const [model, setNewModal] = useState('')
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const currentTitle = event.target.value
-        currentTitle.replace(/[^0-9]/g, '')
-        setNewName(currentTitle);
+        const filteredValue = event.target.value.replace(/[0-9]/g, '')
+        setNewName(filteredValue);
     };
+
     const handleModelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNewModal(event.target.value);
     };
+
     const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setNewPrice(event.target.value);
+        const numericValue = Number(event.target.value);
+
+        if (!isNaN(numericValue)) {
+            setNewPrice(numericValue);
+        }
+        if (numericValue === 0) {
+            setNewPrice('')
+        }
     };
 
     const addChange = () => {
         changeCardAction({name, model, price, id})
         setModal(false)
+        setNewName('');
+        setNewModal('')
+        setNewPrice('')
     }
 
   return (
-    <S.CardModalWindow style={{ display: modal ? "block" : "none" }}>
+    <S.CardModalWindow style={{ display: modal ? 'block' : 'none'}} >
       <S.CardModalContainer>
         <S.CloseModalWindow onClick={() => setModal(false)}>
           <span aria-label="закрыть" role="button">

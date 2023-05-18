@@ -9,8 +9,6 @@ const Card = ( {id, name, model, year, color, price, latitude, longitude} : Cars
     const {removeCardAction} = useActions()
     const [modal, setModal] = useState(false)
 
-
-
     const removeCard = () => {
         removeCardAction(id)
     }
@@ -20,12 +18,6 @@ const Card = ( {id, name, model, year, color, price, latitude, longitude} : Cars
             modal={modal} 
             setModal={setModal} 
             id={id}
-            // newTitle={newTitle}
-            // setNewTitle={setNewTitle}
-            // newPrice={newPrice}
-            // setNewPrice={setNewPrice}
-            // setNewModel={setNewModal}
-            // newModel={newModel}
             />
             <S.cardId> {id} </S.cardId>
             <S.RemoveCardContainer onClick={() => removeCard()}>

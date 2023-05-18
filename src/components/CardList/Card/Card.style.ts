@@ -1,21 +1,28 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-    width: 220px;
-    height: 320px;
+    width: 200px;
+    height: 220px;
     margin: 20px;
     padding-top: 30px;
     padding-left: 30px;
     border: 1px solid lightgray;
     border-radius: 12px;
     position: relative;
-    box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+
+    &:hover {
+        margin-top: 15px;
+        transition: 0.2s;
+        box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+        cursor: pointer;
+
+    }
 `
 
 export const cardId = styled.span`
     position: absolute;
-    top: 2px;
-    left: 5px;
+    top: 12px;
+    left: 15px;
 `
 
 export const RemoveCardContainer = styled.div`
@@ -37,11 +44,6 @@ export const RemoveCardContainer = styled.div`
         position: absolute;
         top: 3px;
         height: 0px;
-        // background-color: rgb(222, 222, 222);
-        &:hover {
-            // background-color: rgb(189, 189, 189, 0.5);
-
-        }
     }
 
     &:hover {
@@ -54,7 +56,6 @@ export const ChangeCardContainer = styled.div`
     background-image: url('./changeCardIcon.svg');
     background-size: cover;
     border-radius: 50%;
-    // border: 1px solid red;
     width: 25px;
     height: 25px;
     position: absolute;
@@ -66,12 +67,11 @@ export const ChangeCardContainer = styled.div`
         transition: 0.2s;
         width: 25px;
         height: 25px;
-        // border: 1px solid lightgreen;
         background-color: lightgreen;
     }
 `
 
-interface CardStypeProps {
+interface CardStyleProps {
     color: string
 }
 
